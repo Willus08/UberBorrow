@@ -1,12 +1,17 @@
 package helpme_productions.com.uberborrow.ribs.root;
 
 import android.support.annotation.Nullable;
+import android.util.Log;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.uber.rib.core.Bundle;
 import com.uber.rib.core.Interactor;
 import com.uber.rib.core.RibInteractor;
 
 import javax.inject.Inject;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Coordinates Business Logic for {@link RootBuilder.RootScope}.
@@ -19,11 +24,18 @@ public class RootInteractor
 
     @Inject RootPresenter presenter;
 
+    private FirebaseAuth mAuth;
 
     @Override
     protected void didBecomeActive(@Nullable Bundle savedInstanceState) {
         super.didBecomeActive(savedInstanceState);
-        getRouter().attachLoggedOut();
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null){
+            Log.d(TAG, "didBecomeActive()" + currentUser);
+        }else{
+            getRouter().attachLoggedOut();
+        }
     }
 
     @Override

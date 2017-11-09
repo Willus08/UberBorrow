@@ -30,16 +30,18 @@ class LoggedOutView extends LinearLayout implements LoggedOutInteractor.LoggedOu
         super(context, attrs, defStyle);
     }
 
-
     @Override
-    public Observable<String> loginName() {
+    public Observable<String> loginUser() {
+
         return RxView.clicks(findViewById(R.id.login_button))
                 .map(new Function<Object, String>() {
 
                     @Override
                     public String apply(Object o) throws Exception {
-                        TextView textView = (TextView) findViewById(R.id.edit_text);
-                        return textView.getText().toString();
+                        TextView email = (TextView) findViewById(R.id.etLoginEmail);
+                        TextView name = (TextView) findViewById(R.id.etLoginName);
+                        final String info = email.getText().toString() +" "+ name.getText().toString();
+                        return info;
                     }
                 });
     }

@@ -13,6 +13,7 @@ import dagger.BindsInstance;
 import dagger.Provides;
 import helpme_productions.com.uberborrow.ribs.root.logged_in.borrow.BorrowBuilder;
 import helpme_productions.com.uberborrow.ribs.root.logged_in.maps.MapBuilder;
+import helpme_productions.com.uberborrow.ribs.root.logged_in.maps.MapInteractor;
 import helpme_productions.com.uberborrow.ribs.root.logged_in.renter.RenterBuilder;
 import helpme_productions.com.uberborrow.ribs.root.logged_in.return_vehicle.ReturnVehicleBuilder;
 import helpme_productions.com.uberborrow.ribs.root.RootView;
@@ -54,6 +55,23 @@ public class LoggedInBuilder extends Builder<LoggedInRouter, LoggedInBuilder.Par
             return new EmptyPresenter();
         }
 
+        @LoggedInScope
+        @Provides
+        static MapInteractor.returnVehicalButtonListener returnVehicalButtonListener(LoggedInInteractor loggedInInteractor) {
+            return loggedInInteractor.new ReturnVehicleButtonListener();
+        }
+
+        @LoggedInScope
+        @Provides
+        static MapInteractor.retnButtonListener retnButtonListener(LoggedInInteractor loggedInInteractor) {
+            return loggedInInteractor.new RentButtonListener();
+        }
+
+        @LoggedInScope
+        @Provides
+        static MapInteractor.borrowButtonListener borrowButtonListener(LoggedInInteractor loggedInInteractor) {
+            return loggedInInteractor.new BorrowButtonListener();
+        }
         @LoggedInScope
         @Provides
         static LoggedInRouter router(Component component, LoggedInInteractor interactor,

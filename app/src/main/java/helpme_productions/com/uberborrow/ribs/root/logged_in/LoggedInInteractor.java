@@ -7,6 +7,8 @@ import com.uber.rib.core.EmptyPresenter;
 import com.uber.rib.core.Interactor;
 import com.uber.rib.core.RibInteractor;
 
+import helpme_productions.com.uberborrow.ribs.root.logged_in.maps.MapInteractor;
+
 /**
  * Coordinates Business Logic for {@link LoggedInBuilder.LoggedInScope}.
  *
@@ -27,6 +29,18 @@ public class LoggedInInteractor extends Interactor<EmptyPresenter, LoggedInRoute
         super.willResignActive();
 
         // TODO: Perform any required clean up here, or delete this method entirely if not needed.
+    }
+
+    class RentButtonListener implements MapInteractor.retnButtonListener {
+
+    }
+
+    class BorrowButtonListener implements MapInteractor.borrowButtonListener{
+
+    }
+
+    class ReturnVehicleButtonListener implements MapInteractor.returnVehicalButtonListener{
+
     }
 
 }

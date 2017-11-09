@@ -75,12 +75,7 @@ public class RootBuilder
         static LoggedOutInteractor.Listener loggedOutListener(RootInteractor rootInteractor) {
             return rootInteractor.new LoggedOutListener();
         }
-//        static RootRouter router(
-//            Component component,
-//            RootView view,
-//            RootInteractor interactor) {
-//            return new RootRouter(view, interactor, component);
-//        }
+
 
         // TODO: Create provider methods for dependencies created by this Rib. These should be static.
     }

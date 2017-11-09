@@ -37,5 +37,13 @@ public class MapInteractor
     /**
      * Presenter interface implemented by this RIB's view.
      */
+    public interface retnButtonListener{
+
+    }
+    public interface borrowButtonListener{}
+
+    public interface returnVehicalButtonListener{}
+
+
     interface MapPresenter { }
 }

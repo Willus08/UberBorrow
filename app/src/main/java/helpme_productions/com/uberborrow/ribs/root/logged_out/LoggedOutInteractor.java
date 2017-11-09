@@ -14,7 +14,7 @@ import io.reactivex.Observable;
 import io.reactivex.functions.Consumer;
 
 /**
- * Coordinates Business Logic for {@link //LoggedOutScope}.
+ * Coordinates Business Logic for {@link LoggedOutBuilder.LoggedOutScope}.
  *
  * TODO describe the logic of this scope.
  */

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "471272610432",
+    "firebase_url": "https://uberborrow.firebaseio.com",
+    "project_id": "uberborrow",
+    "storage_bucket": "uberborrow.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471272610432:android:ff4ee2207bd812ed",
+        "android_client_info": {
+          "package_name": "helpme_productions.com.uberborrow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "471272610432-q0h7kqgs2u91ccmqg1bmqo3huubrrrtb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "helpme_productions.com.uberborrow",
+            "certificate_hash": "ecc3899beadb427afde1f5bcf84676233aa62ec6"
+          }
+        },
+        {
+          "client_id": "471272610432-gunkh5os6on55799tk74tq6j7o9vud2v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCx5lLQDP15imOV7Yvv0OxN_PCk5pGPV9k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "471272610432-gunkh5os6on55799tk74tq6j7o9vud2v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

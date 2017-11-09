@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<helpme_productions.com.uberborrow.ribs.root.logged_in.maps.MapView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="10">
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal"
+       android:layout_gravity="center_horizontal|bottom"
+       >
+       <Button
+           android:id="@+id/btnRent"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_margin="16dp"
+           android:text="Rent" />
+       <Button
+           android:id="@+id/btnBorrow"
+           android:text="Borrow"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_margin="16dp"/>
+       <Button
+           android:id="@+id/btnReturn"
+           android:text="Return"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_margin="16dp"/>
+       <Button
+           android:id="@+id/btnRecall"
+           android:text="Recall"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_margin="16dp"/>
+   </LinearLayout>
+</helpme_productions.com.uberborrow.ribs.root.logged_in.maps.MapView>

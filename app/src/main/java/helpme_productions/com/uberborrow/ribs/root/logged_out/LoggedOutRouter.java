@@ -1,8 +1,5 @@
 package helpme_productions.com.uberborrow.ribs.root.logged_out;
 
-import android.support.annotation.NonNull;
-import android.view.View;
-
 import com.uber.rib.core.ViewRouter;
 
 /**
@@ -19,4 +16,5 @@ public class LoggedOutRouter extends
             LoggedOutBuilder.Component component) {
         super(view, interactor, component);
     }
+
 }

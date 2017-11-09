@@ -1,4 +1,4 @@
-package helpme_productions.com.uberborrow.ribs.root.logged_out;
+package helpme_productions.com.uberborrow.ribs.root.logged_in.renter;
 
 import com.uber.rib.core.RibTestBasePlaceholder;
 import com.uber.rib.core.RouterHelper;
@@ -8,19 +8,19 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-public class LoggedOutRouterTest extends RibTestBasePlaceholder {
+public class RenterRouterTest extends RibTestBasePlaceholder {
 
-    @Mock LoggedOutBuilder.Component component;
-    @Mock LoggedOutInteractor interactor;
-    @Mock LoggedOutView view;
+    @Mock RenterBuilder.Component component;
+    @Mock RenterInteractor interactor;
+    @Mock RenterView view;
 
-    private LoggedOutRouter router;
+    private RenterRouter router;
 
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
 
-        router = new LoggedOutRouter(view, interactor, component);
+        router = new RenterRouter(view, interactor, component);
     }
 
     /**

@@ -1,25 +1,25 @@
-package helpme_productions.com.uberborrow.ribs.root;
+package helpme_productions.com.uberborrow.ribs.root.logged_in.maps;
 
-import com.uber.rib.core.InteractorHelper;
 import com.uber.rib.core.RibTestBasePlaceholder;
+import com.uber.rib.core.InteractorHelper;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-public class RootInteractorTest extends RibTestBasePlaceholder {
+public class MapInteractorTest extends RibTestBasePlaceholder {
 
-    @Mock  RootInteractor.RootPresenter presenter;
-    @Mock RootRouter router;
+    @Mock MapInteractor.MapPresenter presenter;
+    @Mock MapRouter router;
 
-    private RootInteractor interactor;
+    private MapInteractor interactor;
 
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
 
-        interactor = TestRootInteractor.create(presenter);
+        interactor = TestMapInteractor.create(presenter);
     }
 
     /**

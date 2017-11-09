@@ -1,25 +1,25 @@
-package helpme_productions.com.uberborrow.ribs.root;
+package helpme_productions.com.uberborrow.ribs.root.logged_in.return_vehicle;
 
-import com.uber.rib.core.InteractorHelper;
 import com.uber.rib.core.RibTestBasePlaceholder;
+import com.uber.rib.core.InteractorHelper;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-public class RootInteractorTest extends RibTestBasePlaceholder {
+public class ReturnVehicleInteractorTest extends RibTestBasePlaceholder {
 
-    @Mock  RootInteractor.RootPresenter presenter;
-    @Mock RootRouter router;
+    @Mock ReturnVehicleInteractor.ReturnVehiclePresenter presenter;
+    @Mock ReturnVehicleRouter router;
 
-    private RootInteractor interactor;
+    private ReturnVehicleInteractor interactor;
 
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
 
-        interactor = TestRootInteractor.create(presenter);
+        interactor = TestReturnVehicleInteractor.create(presenter);
     }
 
     /**

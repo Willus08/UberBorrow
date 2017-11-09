@@ -1,4 +1,4 @@
-package helpme_productions.com.uberborrow.ribs.root;
+package helpme_productions.com.uberborrow.ribs.root.logged_in.return_vehicle;
 
 import com.uber.rib.core.RibTestBasePlaceholder;
 import com.uber.rib.core.RouterHelper;
@@ -8,18 +8,19 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-public class RootRouterTest extends RibTestBasePlaceholder {
+public class ReturnVehicleRouterTest extends RibTestBasePlaceholder {
 
-    @Mock RootBuilder.Component component;
-    @Mock RootInteractor interactor;
+    @Mock ReturnVehicleBuilder.Component component;
+    @Mock ReturnVehicleInteractor interactor;
+    @Mock ReturnVehicleView view;
 
-    private RootRouter router;
+    private ReturnVehicleRouter router;
 
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
 
-
+        router = new ReturnVehicleRouter(view, interactor, component);
     }
 
     /**

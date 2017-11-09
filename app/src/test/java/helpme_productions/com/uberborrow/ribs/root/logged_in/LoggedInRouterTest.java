@@ -1,4 +1,4 @@
-package helpme_productions.com.uberborrow.ribs.root;
+package helpme_productions.com.uberborrow.ribs.root.logged_in;
 
 import com.uber.rib.core.RibTestBasePlaceholder;
 import com.uber.rib.core.RouterHelper;
@@ -8,12 +8,12 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-public class RootRouterTest extends RibTestBasePlaceholder {
+public class LoggedInRouterTest extends RibTestBasePlaceholder {
 
-    @Mock RootBuilder.Component component;
-    @Mock RootInteractor interactor;
+    @Mock LoggedInBuilder.Component component;
+    @Mock LoggedInInteractor interactor;
 
-    private RootRouter router;
+    private LoggedInRouter router;
 
     @Before
     public void setup() {

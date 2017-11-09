@@ -1,25 +1,26 @@
-package helpme_productions.com.uberborrow.ribs.root;
+package helpme_productions.com.uberborrow.ribs.root.logged_in;
 
-import com.uber.rib.core.InteractorHelper;
 import com.uber.rib.core.RibTestBasePlaceholder;
+import com.uber.rib.core.EmptyPresenter;
+import com.uber.rib.core.InteractorHelper;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-public class RootInteractorTest extends RibTestBasePlaceholder {
+public class LoggedInInteractorTest extends RibTestBasePlaceholder {
 
-    @Mock  RootInteractor.RootPresenter presenter;
-    @Mock RootRouter router;
+    @Mock EmptyPresenter presenter;
+    @Mock LoggedInRouter router;
 
-    private RootInteractor interactor;
+    private LoggedInInteractor interactor;
 
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
 
-        interactor = TestRootInteractor.create(presenter);
+        interactor = TestLoggedInInteractor.create();
     }
 
     /**

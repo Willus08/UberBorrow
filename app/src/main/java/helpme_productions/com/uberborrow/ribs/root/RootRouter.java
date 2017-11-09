@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.uber.rib.core.ViewRouter;
 
+import helpme_productions.com.uberborrow.ribs.root.logged_in.LoggedInBuilder;
 import helpme_productions.com.uberborrow.ribs.root.logged_out.LoggedOutBuilder;
 import helpme_productions.com.uberborrow.ribs.root.logged_out.LoggedOutRouter;
 
@@ -14,11 +15,15 @@ import helpme_productions.com.uberborrow.ribs.root.logged_out.LoggedOutRouter;
  */
 public class RootRouter extends
         ViewRouter<RootView, RootInteractor, RootBuilder.Component> {
-        LoggedOutBuilder loggedOutBuilder;
+        private LoggedOutBuilder loggedOutBuilder;
+        private LoggedInBuilder loggedInBuilder;
 
-    public RootRouter(RootView view, RootInteractor interactor, RootBuilder.Component component, LoggedOutBuilder loggedOutBuilder) {
+        private LoggedOutRouter loggedOutRouter;
+
+    public RootRouter(RootView view, RootInteractor interactor, RootBuilder.Component component, LoggedOutBuilder loggedOutBuilder, LoggedInBuilder loggedInBuilder) {
         super(view, interactor, component);
         this.loggedOutBuilder = loggedOutBuilder;
+        this.loggedInBuilder = loggedInBuilder;
     }
 
     public RootRouter(
@@ -29,18 +34,24 @@ public class RootRouter extends
     }
 
     void attachLoggedOut(){
-
-        LoggedOutRouter router = loggedOutBuilder.build(getView());
-        attachChild(router);
-       getView().addView(router.getView());
+       loggedOutRouter = loggedOutBuilder.build(getView());
+        attachChild(loggedOutRouter);
+       getView().addView(loggedOutRouter.getView());
     }
 
 
     public void attachLoggedIn() {
         Log.d("awesome", "attachLoggedIn: ");
+        attachChild(loggedInBuilder.build());
     }
 
     public void detachLoggedOut() {
         Log.d("awesome", "detachLoggedOut: ");
+        if (loggedOutRouter != null) {
+            detachChild(loggedOutRouter);
+            getView().removeView(loggedOutRouter.getView());
+            loggedOutRouter = null;
+        }
     }
+
 }

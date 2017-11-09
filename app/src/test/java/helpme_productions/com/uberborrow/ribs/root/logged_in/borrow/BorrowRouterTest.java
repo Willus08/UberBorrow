@@ -1,4 +1,4 @@
-package helpme_productions.com.uberborrow.ribs.root;
+package helpme_productions.com.uberborrow.ribs.root.logged_in.borrow;
 
 import com.uber.rib.core.RibTestBasePlaceholder;
 import com.uber.rib.core.RouterHelper;
@@ -8,18 +8,19 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-public class RootRouterTest extends RibTestBasePlaceholder {
+public class BorrowRouterTest extends RibTestBasePlaceholder {
 
-    @Mock RootBuilder.Component component;
-    @Mock RootInteractor interactor;
+    @Mock BorrowBuilder.Component component;
+    @Mock BorrowInteractor interactor;
+    @Mock BorrowView view;
 
-    private RootRouter router;
+    private BorrowRouter router;
 
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
 
-
+        router = new BorrowRouter(view, interactor, component);
     }
 
     /**

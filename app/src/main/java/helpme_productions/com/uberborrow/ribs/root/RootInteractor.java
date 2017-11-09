@@ -43,6 +43,7 @@ public class RootInteractor
         currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
             Log.d(TAG, "didBecomeActive()" + currentUser);
+            getRouter().attachLoggedIn();
         }else{
             getRouter().attachLoggedOut();
         }

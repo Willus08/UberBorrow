@@ -15,6 +15,7 @@ import dagger.BindsInstance;
 import dagger.Provides;
 import helpme_productions.com.uberborrow.R;
 import helpme_productions.com.uberborrow.ribs.root.logged_out.LoggedOutBuilder;
+import helpme_productions.com.uberborrow.ribs.root.logged_out.LoggedOutInteractor;
 
 import static java.lang.annotation.RetentionPolicy.CLASS;
 
@@ -67,6 +68,11 @@ public class RootBuilder
         @Provides
         static RootRouter router(Component component, RootView view, RootInteractor interactor) {
             return new RootRouter(view, interactor, component, new LoggedOutBuilder(component));
+        }
+        @RootScope
+        @Provides
+        static LoggedOutInteractor.Listener loggedOutListener(RootInteractor rootInteractor) {
+            return rootInteractor.new LoggedOutListener();
         }
 //        static RootRouter router(
 //            Component component,

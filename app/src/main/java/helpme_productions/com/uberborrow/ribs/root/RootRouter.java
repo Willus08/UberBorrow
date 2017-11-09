@@ -1,5 +1,7 @@
 package helpme_productions.com.uberborrow.ribs.root;
 
+import android.util.Log;
+
 import com.uber.rib.core.ViewRouter;
 
 import helpme_productions.com.uberborrow.ribs.root.logged_out.LoggedOutBuilder;
@@ -34,4 +36,11 @@ public class RootRouter extends
     }
 
 
+    public void attachLoggedIn() {
+        Log.d("awesome", "attachLoggedIn: ");
+    }
+
+    public void detachLoggedOut() {
+        Log.d("awesome", "detachLoggedOut: ");
+    }
 }

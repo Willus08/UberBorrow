@@ -23,8 +23,9 @@ public class LoggedOutInteractor
         extends Interactor<LoggedOutInteractor.LoggedOutPresenter, LoggedOutRouter> {
 
     @Inject LoggedOutPresenter presenter;
+    @Inject Listener listener;
     private FirebaseAuth mAuth;
-    private String userName;
+    private String userPassword;
     private String userEmail;
 
     @Override
@@ -36,9 +37,12 @@ public class LoggedOutInteractor
                 .subscribe(new Consumer<String>() {
                     @Override
                     public void accept(String user) throws Exception {
-                        userName = user.substring(user.indexOf(".com")+5);
+                        userPassword = user.substring(user.indexOf(".com")+5);
                         userEmail = user.substring(0,user.indexOf(".com")+4);
-                        Log.d("moo", "didBecomeActive: " + userEmail +": "+ userName);
+                        if(!userEmail.isEmpty() && !userPassword.isEmpty()){
+                            listener.login(userEmail,userPassword);
+                        }
+                        Log.d("moo", "didBecomeActive: " + userEmail +": "+ userPassword);
                     }
                 });
 
@@ -59,6 +63,10 @@ public class LoggedOutInteractor
      */
     interface LoggedOutPresenter {
         Observable <String>loginUser();
+    }
+
+    public interface Listener {
+        void login(String useEmail, String userPassword);
     }
 
 

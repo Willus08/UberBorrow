@@ -38,9 +38,9 @@ class LoggedOutView extends LinearLayout implements LoggedOutInteractor.LoggedOu
 
                     @Override
                     public String apply(Object o) throws Exception {
-                        TextView email = (TextView) findViewById(R.id.etLoginEmail);
-                        TextView name = (TextView) findViewById(R.id.etLoginName);
-                        final String info = email.getText().toString() +" "+ name.getText().toString();
+                        TextView email =  findViewById(R.id.etLoginEmail);
+                        TextView password =  findViewById(R.id.etLogiPassword);
+                        final String info = email.getText().toString() +" "+ password.getText().toString();
                         return info;
                     }
                 });

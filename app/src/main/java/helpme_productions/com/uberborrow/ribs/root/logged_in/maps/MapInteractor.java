@@ -8,6 +8,9 @@ import com.uber.rib.core.RibInteractor;
 
 import javax.inject.Inject;
 
+import io.reactivex.Observable;
+import io.reactivex.functions.Consumer;
+
 /**
  * Coordinates Business Logic for {@link MapBuilder.MapScope}.
  *
@@ -18,11 +21,19 @@ public class MapInteractor
         extends Interactor<MapInteractor.MapPresenter, MapRouter> {
 
     @Inject MapPresenter presenter;
-
+    @Inject RentButtonListener rentButtonListener;
     @Override
     protected void didBecomeActive(@Nullable Bundle savedInstanceState) {
         super.didBecomeActive(savedInstanceState);
 
+        presenter
+            .rentButtonPressed()
+                .subscribe(new Consumer<String>() {
+            @Override
+            public void accept(String rent) throws Exception {
+                rentButtonListener.setupRent();
+            }
+        });
         // TODO: Add attachment logic here (RxSubscriptions, etc.).
     }
 
@@ -37,13 +48,15 @@ public class MapInteractor
     /**
      * Presenter interface implemented by this RIB's view.
      */
-    public interface retnButtonListener{
-
+    public interface RentButtonListener {
+        void setupRent();
     }
     public interface borrowButtonListener{}
 
     public interface returnVehicalButtonListener{}
 
 
-    interface MapPresenter { }
+    interface MapPresenter {
+        Observable<String> rentButtonPressed();
+    }
 }

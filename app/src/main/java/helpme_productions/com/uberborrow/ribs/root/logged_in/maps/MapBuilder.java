@@ -55,7 +55,7 @@ public class MapBuilder
     }
 
     public interface ParentComponent {
-        // TODO: Define dependencies required from your parent interactor here.
+       MapInteractor.RentButtonListener rentButtonListener();
     }
 
     @dagger.Module

@@ -15,6 +15,7 @@ import helpme_productions.com.uberborrow.ribs.root.logged_in.borrow.BorrowBuilde
 import helpme_productions.com.uberborrow.ribs.root.logged_in.maps.MapBuilder;
 import helpme_productions.com.uberborrow.ribs.root.logged_in.maps.MapInteractor;
 import helpme_productions.com.uberborrow.ribs.root.logged_in.renter.RenterBuilder;
+import helpme_productions.com.uberborrow.ribs.root.logged_in.renter.RenterInteractor;
 import helpme_productions.com.uberborrow.ribs.root.logged_in.return_vehicle.ReturnVehicleBuilder;
 import helpme_productions.com.uberborrow.ribs.root.RootView;
 
@@ -63,8 +64,14 @@ public class LoggedInBuilder extends Builder<LoggedInRouter, LoggedInBuilder.Par
 
         @LoggedInScope
         @Provides
-        static MapInteractor.retnButtonListener retnButtonListener(LoggedInInteractor loggedInInteractor) {
+        static MapInteractor.RentButtonListener retnButtonListener(LoggedInInteractor loggedInInteractor) {
             return loggedInInteractor.new RentButtonListener();
+        }
+
+        @LoggedInScope
+        @Provides
+        static RenterInteractor.RentingStartedListener rentingStartedListener(LoggedInInteractor loggedInInteractor) {
+            return loggedInInteractor.new RentStartListener();
         }
 
         @LoggedInScope

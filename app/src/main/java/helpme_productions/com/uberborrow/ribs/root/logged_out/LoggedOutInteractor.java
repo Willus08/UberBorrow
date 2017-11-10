@@ -3,7 +3,6 @@ package helpme_productions.com.uberborrow.ribs.root.logged_out;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.uber.rib.core.Bundle;
 import com.uber.rib.core.Interactor;
 import com.uber.rib.core.RibInteractor;
@@ -24,14 +23,12 @@ public class LoggedOutInteractor
 
     @Inject LoggedOutPresenter presenter;
     @Inject Listener listener;
-    private FirebaseAuth mAuth;
     private String userPassword;
     private String userEmail;
 
     @Override
     protected void didBecomeActive(@Nullable Bundle savedInstanceState) {
         super.didBecomeActive(savedInstanceState);
-        mAuth = FirebaseAuth.getInstance();
         presenter
                 .loginUser()
                 .subscribe(new Consumer<String>() {

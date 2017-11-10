@@ -9,6 +9,7 @@ import helpme_productions.com.uberborrow.ribs.root.logged_in.borrow.BorrowBuilde
 import helpme_productions.com.uberborrow.ribs.root.logged_in.maps.MapBuilder;
 import helpme_productions.com.uberborrow.ribs.root.logged_in.maps.MapRouter;
 import helpme_productions.com.uberborrow.ribs.root.logged_in.renter.RenterBuilder;
+import helpme_productions.com.uberborrow.ribs.root.logged_in.renter.RenterRouter;
 import helpme_productions.com.uberborrow.ribs.root.logged_in.return_vehicle.ReturnVehicleBuilder;
 
 /**
@@ -25,6 +26,7 @@ public class LoggedInRouter
     RenterBuilder renterBuilder;
     ReturnVehicleBuilder returnVehicleBuilder;
     MapRouter mapRouter;
+    RenterRouter renterRouter;
 
 
     public LoggedInRouter(
@@ -48,15 +50,32 @@ public class LoggedInRouter
         parentView.addView(mapRouter.getView());
     }
 
-    public void attachRebter(){}
+    public void attachRenter(){
+        renterRouter = renterBuilder.build(parentView);
+        attachChild(renterRouter);
+        parentView.addView(renterRouter.getView());
+    }
 
     public void attachBorrower(){}
 
     public void attachReturnVehicle(){}
 
-    public void detachMap(){}
+    public void detachMap(){
+        if (mapRouter != null) {
+            detachChild(mapRouter);
+            parentView.removeView(mapRouter.getView());
+            mapRouter = null;
+        }
 
-    public void detachRenter(){}
+    }
+
+    public void detachRenter(){
+        if(renterRouter != null){
+            detachChild(renterRouter);
+            parentView.removeView(renterRouter.getView());
+            renterRouter = null;
+        }
+    }
 
     public void detachBorrower(){}
 

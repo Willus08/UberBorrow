@@ -14,6 +14,7 @@ import javax.inject.Scope;
 import dagger.Binds;
 import dagger.BindsInstance;
 import dagger.Provides;
+import helpme_productions.com.uberborrow.R;
 
 import static java.lang.annotation.RetentionPolicy.CLASS;
 
@@ -50,11 +51,11 @@ public class RenterBuilder
     protected RenterView inflateView(LayoutInflater inflater, ViewGroup parentViewGroup) {
         // TODO: Inflate a new view using the provided inflater, or create a new view programatically using the
         // provided context from the parentViewGroup.
-        return null;
+        return (RenterView) inflater.inflate(R.layout.renter_rib, parentViewGroup, false);
     }
 
     public interface ParentComponent {
-        // TODO: Define dependencies required from your parent interactor here.
+        RenterInteractor.RentingStartedListener rentStartedListener();
     }
 
     @dagger.Module

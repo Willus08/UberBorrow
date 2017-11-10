@@ -36,7 +36,20 @@ class MapView extends FrameLayout implements MapInteractor.MapPresenter {
 
                     @Override
                     public String apply(Object o) throws Exception {
+
                     return "rent";
+                    }
+                });
+    }
+
+    @Override
+    public Observable<String> borrowButtonPressed() {
+        return RxView.clicks(findViewById(R.id.btnBorrow))
+                .map(new Function<Object, String>() {
+
+                    @Override
+                    public String apply(Object o) throws Exception {
+                        return "borrow";
                     }
                 });
     }

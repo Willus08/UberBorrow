@@ -12,6 +12,7 @@ import com.uber.rib.core.Interactor;
 import com.uber.rib.core.RibInteractor;
 
 import helpme_productions.com.uberborrow.model.CarInformation;
+import helpme_productions.com.uberborrow.ribs.root.logged_in.borrow.BorrowInteractor;
 import helpme_productions.com.uberborrow.ribs.root.logged_in.maps.MapInteractor;
 import helpme_productions.com.uberborrow.ribs.root.logged_in.renter.RenterInteractor;
 
@@ -36,10 +37,7 @@ public class LoggedInInteractor extends Interactor<EmptyPresenter, LoggedInRoute
 
         currentUser = mAuth.getCurrentUser();
         mRef = mRef.child("Owener" + currentUser.getUid());
-
-        if (!buttonpressed){
-            getRouter().attachMap();
-        }
+        getRouter().attachMap();
         // TODO: Add attachment logic here (RxSubscriptions, etc.).
     }
 
@@ -60,8 +58,14 @@ public class LoggedInInteractor extends Interactor<EmptyPresenter, LoggedInRoute
         }
     }
 
-    class BorrowButtonListener implements MapInteractor.borrowButtonListener{
+    class BorrowButtonListener implements MapInteractor.BorrowButtonListener {
 
+        @Override
+        public void setupBorrow() {
+            buttonpressed = true;
+            getRouter().detachMap();
+            getRouter().attachBorrower();
+        }
     }
 
     class ReturnVehicleButtonListener implements MapInteractor.returnVehicalButtonListener{
@@ -73,9 +77,19 @@ public class LoggedInInteractor extends Interactor<EmptyPresenter, LoggedInRoute
         @Override
         public void StartRent(CarInformation carInformation) {
             mRef.setValue(carInformation);
-            buttonpressed = false;
             getRouter().detachRenter();
             getRouter().attachMap();
+        }
+    }
+
+    class BorrowStartListener implements BorrowInteractor.borrowListener{
+
+        @Override
+        public void beginBorrow(CarInformation carInformation) {
+            mRef.setValue(carInformation);
+            getRouter().detachBorrower();
+            getRouter().attachMap();
+
         }
     }
 

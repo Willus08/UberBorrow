@@ -22,6 +22,7 @@ public class MapInteractor
 
     @Inject MapPresenter presenter;
     @Inject RentButtonListener rentButtonListener;
+    @Inject BorrowButtonListener borrowButtonListener;
     @Override
     protected void didBecomeActive(@Nullable Bundle savedInstanceState) {
         super.didBecomeActive(savedInstanceState);
@@ -32,6 +33,15 @@ public class MapInteractor
             @Override
             public void accept(String rent) throws Exception {
                 rentButtonListener.setupRent();
+
+            }
+        });
+        presenter.borrowButtonPressed()
+                .subscribe(new Consumer<String>() {
+            @Override
+            public void accept(String rent) throws Exception {
+                borrowButtonListener.setupBorrow();
+
             }
         });
         // TODO: Add attachment logic here (RxSubscriptions, etc.).
@@ -51,12 +61,15 @@ public class MapInteractor
     public interface RentButtonListener {
         void setupRent();
     }
-    public interface borrowButtonListener{}
+    public interface BorrowButtonListener {
+        void setupBorrow();
+    }
 
     public interface returnVehicalButtonListener{}
 
 
     interface MapPresenter {
         Observable<String> rentButtonPressed();
+        Observable<String> borrowButtonPressed();
     }
 }

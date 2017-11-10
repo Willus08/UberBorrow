@@ -10,6 +10,7 @@
        android:layout_height="wrap_content"
        android:orientation="horizontal"
        android:layout_gravity="center_horizontal|bottom"
+       android:gravity="center"
        >
        <Button
            android:id="@+id/btnRent"
@@ -17,20 +18,25 @@
            android:layout_height="wrap_content"
            android:layout_margin="16dp"
            android:text="Rent" />
+
        <Button
            android:id="@+id/btnBorrow"
            android:text="Borrow"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:layout_margin="16dp"/>
+
        <Button
            android:id="@+id/btnReturn"
+           android:visibility="gone"
            android:text="Return"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:layout_margin="16dp"/>
+
        <Button
            android:id="@+id/btnRecall"
+           android:visibility="gone"
            android:text="Recall"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"

@@ -1,19 +1,20 @@
 package helpme_productions.com.uberborrow.ribs.root.logged_in.borrow;
 
-import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.uber.rib.core.InteractorBaseComponent;
 import com.uber.rib.core.ViewBuilder;
+
 import java.lang.annotation.Retention;
 
-import javax.inject.Scope;
 import javax.inject.Qualifier;
+import javax.inject.Scope;
 
-import dagger.Provides;
 import dagger.Binds;
 import dagger.BindsInstance;
+import dagger.Provides;
+import helpme_productions.com.uberborrow.R;
 
 import static java.lang.annotation.RetentionPolicy.CLASS;
 
@@ -50,7 +51,7 @@ public class BorrowBuilder
     protected BorrowView inflateView(LayoutInflater inflater, ViewGroup parentViewGroup) {
         // TODO: Inflate a new view using the provided inflater, or create a new view programatically using the
         // provided context from the parentViewGroup.
-        return null;
+        return (BorrowView) inflater.inflate(R.layout.borrow_rib, parentViewGroup, false);
     }
 
     public interface ParentComponent {

@@ -56,6 +56,7 @@ public class MapBuilder
 
     public interface ParentComponent {
        MapInteractor.RentButtonListener rentButtonListener();
+       MapInteractor.BorrowButtonListener borrowButtoneListener();
     }
 
     @dagger.Module

@@ -6,6 +6,7 @@ import com.uber.rib.core.Router;
 
 import helpme_productions.com.uberborrow.ribs.root.RootView;
 import helpme_productions.com.uberborrow.ribs.root.logged_in.borrow.BorrowBuilder;
+import helpme_productions.com.uberborrow.ribs.root.logged_in.borrow.BorrowRouter;
 import helpme_productions.com.uberborrow.ribs.root.logged_in.maps.MapBuilder;
 import helpme_productions.com.uberborrow.ribs.root.logged_in.maps.MapRouter;
 import helpme_productions.com.uberborrow.ribs.root.logged_in.renter.RenterBuilder;
@@ -21,12 +22,13 @@ public class LoggedInRouter
         extends Router<LoggedInInteractor, LoggedInBuilder.Component> {
 
     private final ViewGroup parentView;
-    BorrowBuilder borrowBuilder;
-    MapBuilder mapBuilder;
-    RenterBuilder renterBuilder;
+    private BorrowBuilder borrowBuilder;
+    private MapBuilder mapBuilder;
+    private RenterBuilder renterBuilder;
     ReturnVehicleBuilder returnVehicleBuilder;
-    MapRouter mapRouter;
-    RenterRouter renterRouter;
+    private MapRouter mapRouter;
+    private RenterRouter renterRouter;
+    private BorrowRouter borrowRouter;
 
 
     public LoggedInRouter(
@@ -56,7 +58,11 @@ public class LoggedInRouter
         parentView.addView(renterRouter.getView());
     }
 
-    public void attachBorrower(){}
+    public void attachBorrower(){
+        borrowRouter = borrowBuilder.build(parentView);
+        attachChild(borrowRouter);
+        parentView.addView(borrowRouter.getView());
+    }
 
     public void attachReturnVehicle(){}
 
@@ -77,7 +83,13 @@ public class LoggedInRouter
         }
     }
 
-    public void detachBorrower(){}
+    public void detachBorrower(){
+        if(borrowRouter != null){
+            detachChild(borrowRouter);
+            parentView.removeView(borrowRouter.getView());
+            borrowRouter = null;
+        }
+    }
 
     public void detatchReturnVehicle(){}
 

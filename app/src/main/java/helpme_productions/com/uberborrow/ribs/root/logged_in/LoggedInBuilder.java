@@ -76,7 +76,7 @@ public class LoggedInBuilder extends Builder<LoggedInRouter, LoggedInBuilder.Par
 
         @LoggedInScope
         @Provides
-        static MapInteractor.borrowButtonListener borrowButtonListener(LoggedInInteractor loggedInInteractor) {
+        static MapInteractor.BorrowButtonListener borrowButtonListener(LoggedInInteractor loggedInInteractor) {
             return loggedInInteractor.new BorrowButtonListener();
         }
         @LoggedInScope

@@ -30,15 +30,15 @@ class BorrowView extends FrameLayout implements BorrowInteractor.BorrowPresenter
         super(context, attrs, defStyle);
     }
 
-    @Override
-    public void setupRecyclerView(List<CarInformation> carInformationList) {
-        RecyclerView recyclerView = findViewById(R.id.rvCarsList);
-        RecyleAdapter adapter = new RecyleAdapter(carInformationList);
-        DefaultItemAnimator itemAnimator = new DefaultItemAnimator();
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getContext());
-
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setItemAnimator(itemAnimator);
-    }
+//    @Override
+//    public void setupRecyclerView(List<CarInformation> carInformationList) {
+//        RecyclerView recyclerView = findViewById(R.id.rvCarsList);
+//        RecyleAdapter adapter = new RecyleAdapter(carInformationList);
+//        DefaultItemAnimator itemAnimator = new DefaultItemAnimator();
+//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+//
+//        recyclerView.setAdapter(adapter);
+//        recyclerView.setLayoutManager(layoutManager);
+//        recyclerView.setItemAnimator(itemAnimator);
+//    }
 }

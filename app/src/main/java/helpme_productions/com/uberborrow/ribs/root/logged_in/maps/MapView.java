@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
+import com.google.android.gms.maps.GoogleMap;
 import com.jakewharton.rxbinding2.view.RxView;
 
 import helpme_productions.com.uberborrow.R;
@@ -27,6 +28,8 @@ class MapView extends FrameLayout implements MapInteractor.MapPresenter {
     public MapView(Context context, @Nullable AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
+
+    private GoogleMap mMap;
 
 
     @Override
@@ -53,4 +56,6 @@ class MapView extends FrameLayout implements MapInteractor.MapPresenter {
                     }
                 });
     }
+
+
 }

@@ -12,6 +12,7 @@ import javax.inject.Scope;
 import dagger.BindsInstance;
 import dagger.Provides;
 import helpme_productions.com.uberborrow.ribs.root.logged_in.borrow.BorrowBuilder;
+import helpme_productions.com.uberborrow.ribs.root.logged_in.borrow.BorrowInteractor;
 import helpme_productions.com.uberborrow.ribs.root.logged_in.maps.MapBuilder;
 import helpme_productions.com.uberborrow.ribs.root.logged_in.maps.MapInteractor;
 import helpme_productions.com.uberborrow.ribs.root.logged_in.renter.RenterBuilder;
@@ -72,6 +73,12 @@ public class LoggedInBuilder extends Builder<LoggedInRouter, LoggedInBuilder.Par
         @Provides
         static RenterInteractor.RentingStartedListener rentingStartedListener(LoggedInInteractor loggedInInteractor) {
             return loggedInInteractor.new RentStartListener();
+        }
+
+        @LoggedInScope
+        @Provides
+        static BorrowInteractor.BorrowListener borrowListener(LoggedInInteractor loggedInInteractor) {
+            return loggedInInteractor.new BorrowStartListener();
         }
 
         @LoggedInScope

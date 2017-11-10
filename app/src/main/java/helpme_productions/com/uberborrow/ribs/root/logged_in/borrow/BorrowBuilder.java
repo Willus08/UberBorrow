@@ -55,7 +55,7 @@ public class BorrowBuilder
     }
 
     public interface ParentComponent {
-        // TODO: Define dependencies required from your parent interactor here.
+      BorrowInteractor.BorrowListener BorrowStartListener();
     }
 
     @dagger.Module

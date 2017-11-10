@@ -27,7 +27,8 @@ public class LoggedInInteractor extends Interactor<EmptyPresenter, LoggedInRoute
     private FirebaseDatabase mData;
     DatabaseReference mRef;
     FirebaseUser currentUser;
-   private boolean buttonpressed = false;
+
+
     @Override
     protected void didBecomeActive(@Nullable Bundle savedInstanceState) {
         super.didBecomeActive(savedInstanceState);
@@ -36,8 +37,9 @@ public class LoggedInInteractor extends Interactor<EmptyPresenter, LoggedInRoute
         mRef = mData.getReference("Vehicles");
 
         currentUser = mAuth.getCurrentUser();
-        mRef = mRef.child("Owener" + currentUser.getUid());
+
         getRouter().attachMap();
+
         // TODO: Add attachment logic here (RxSubscriptions, etc.).
     }
 
@@ -52,7 +54,6 @@ public class LoggedInInteractor extends Interactor<EmptyPresenter, LoggedInRoute
 
         @Override
         public void setupRent() {
-            buttonpressed = true;
             getRouter().detachMap();
             getRouter().attachRenter();
         }
@@ -62,7 +63,6 @@ public class LoggedInInteractor extends Interactor<EmptyPresenter, LoggedInRoute
 
         @Override
         public void setupBorrow() {
-            buttonpressed = true;
             getRouter().detachMap();
             getRouter().attachBorrower();
         }
@@ -79,10 +79,11 @@ public class LoggedInInteractor extends Interactor<EmptyPresenter, LoggedInRoute
             mRef.setValue(carInformation);
             getRouter().detachRenter();
             getRouter().attachMap();
+
         }
     }
 
-    class BorrowStartListener implements BorrowInteractor.borrowListener{
+    class BorrowStartListener implements BorrowInteractor.BorrowListener {
 
         @Override
         public void beginBorrow(CarInformation carInformation) {

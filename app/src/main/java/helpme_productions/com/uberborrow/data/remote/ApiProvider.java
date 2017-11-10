@@ -1,8 +1,6 @@
 package helpme_productions.com.uberborrow.data.remote;
 
 
-import java.util.List;
-
 import helpme_productions.com.uberborrow.model.CarInformation;
 import retrofit2.Call;
 import retrofit2.Retrofit;
@@ -19,9 +17,15 @@ public class ApiProvider {
                 .build();
     }
 
-    public static Call<List<CarInformation>> carInformationCall(){
+    public static Call<CarInformation> carInformationCall(){
         Retrofit retrofit = create();
         ApiService services = retrofit.create(ApiService.class);
         return services.carInformationCall();
+    }
+
+    public static Call<CarInformation> carInformationPost(CarInformation carInformation){
+        Retrofit retrofit = create();
+        ApiService service = retrofit.create(ApiService.class);
+        return service.carInformationPost(carInformation);
     }
 }

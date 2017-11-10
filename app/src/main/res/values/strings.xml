@@ -10,8 +10,9 @@
     <string name="car_model_hint">Car Model</string>
     <string name="car_year_hint">Car year</string>
     <string name="car_caolor_hint">Car Caolor</string>
-    <string name="available_begining_hint">Available begining...</string>
+    <string name="available_begining_hint">Available beginning…</string>
     <string name="return_by_hint">Return By</string>
     <string name="future_content_message">More content later</string>
     <string name="start_rent_button">Start Rent</string>
+    <string name="title_activity_google">Map</string>
 </resources>

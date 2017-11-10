@@ -83,6 +83,6 @@ public class BorrowInteractor
     }
 
     interface BorrowPresenter {
-       // void setupRecyclerView(List<CarInformation> carInformationList);
+        // void setupRecyclerView(List<CarInformation> carInformationList);
     }
 }

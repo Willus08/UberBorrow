@@ -11,6 +11,7 @@ import javax.inject.Scope;
 
 import dagger.BindsInstance;
 import dagger.Provides;
+import helpme_productions.com.uberborrow.ribs.root.RootView;
 import helpme_productions.com.uberborrow.ribs.root.logged_in.borrow.BorrowBuilder;
 import helpme_productions.com.uberborrow.ribs.root.logged_in.borrow.BorrowInteractor;
 import helpme_productions.com.uberborrow.ribs.root.logged_in.maps.MapBuilder;
@@ -18,7 +19,6 @@ import helpme_productions.com.uberborrow.ribs.root.logged_in.maps.MapInteractor;
 import helpme_productions.com.uberborrow.ribs.root.logged_in.renter.RenterBuilder;
 import helpme_productions.com.uberborrow.ribs.root.logged_in.renter.RenterInteractor;
 import helpme_productions.com.uberborrow.ribs.root.logged_in.return_vehicle.ReturnVehicleBuilder;
-import helpme_productions.com.uberborrow.ribs.root.RootView;
 
 import static java.lang.annotation.RetentionPolicy.CLASS;
 

@@ -55,7 +55,7 @@ public class BorrowBuilder
     }
 
     public interface ParentComponent {
-      BorrowInteractor.BorrowListener BorrowStartListener();
+        BorrowInteractor.BorrowListener BorrowStartListener();
     }
 
     @dagger.Module
@@ -68,9 +68,9 @@ public class BorrowBuilder
         @BorrowScope
         @Provides
         static BorrowRouter router(
-            Component component,
-            BorrowView view,
-            BorrowInteractor interactor) {
+                Component component,
+                BorrowView view,
+                BorrowInteractor interactor) {
             return new BorrowRouter(view, interactor, component);
         }
 
@@ -79,7 +79,7 @@ public class BorrowBuilder
 
     @BorrowScope
     @dagger.Component(modules = Module.class,
-           dependencies = ParentComponent.class)
+            dependencies = ParentComponent.class)
     interface Component extends InteractorBaseComponent<BorrowInteractor>, BuilderComponent {
 
         @dagger.Component.Builder

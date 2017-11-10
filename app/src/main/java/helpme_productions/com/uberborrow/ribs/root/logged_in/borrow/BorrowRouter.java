@@ -1,9 +1,7 @@
 package helpme_productions.com.uberborrow.ribs.root.logged_in.borrow;
 
-import android.support.annotation.NonNull;
-import android.view.View;
-
 import com.uber.rib.core.ViewRouter;
+
 
 /**
  * Adds and removes children of {@link BorrowBuilder.BorrowScope}.
@@ -20,3 +18,4 @@ public class BorrowRouter extends
         super(view, interactor, component);
     }
 }
+

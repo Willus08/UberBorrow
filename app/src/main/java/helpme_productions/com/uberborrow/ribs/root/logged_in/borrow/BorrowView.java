@@ -2,16 +2,11 @@ package helpme_productions.com.uberborrow.ribs.root.logged_in.borrow;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
-import java.util.List;
 
-import helpme_productions.com.uberborrow.R;
-import helpme_productions.com.uberborrow.model.CarInformation;
+
 
 /**
  * Top level view for {@link BorrowBuilder.BorrowScope}.
